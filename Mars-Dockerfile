@@ -21,6 +21,7 @@ RUN set -ex; \
         novnc \
 	gdebi \
         xz-utils \
+	lintian \
 	socat \
         x11vnc \
 	xvfb \
