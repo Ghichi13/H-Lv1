@@ -19,7 +19,7 @@ RUN set -ex; \
         net-tools \
         novnc \
 	gdebi \
-        
+        xz-utils \
 	socat \
         x11vnc \
 	xvfb \
