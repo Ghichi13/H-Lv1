@@ -9,6 +9,7 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
+	xfce4 \
         nautilus \
         gedit \
         expect \
@@ -60,9 +61,6 @@ RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/a39121ywaguj
 RUN sudo gdebi megasync-xUbuntu_18.04_amd64.deb?dl=0
 RUN sudo apt --fix-broken install
 
-RUN sudo add-apt-repository ppa:xubuntu-dev/xfce-4.16
-RUN sudo apt-get update
-RUN sudo apt-get install xfce4
 
 
 COPY . /app
