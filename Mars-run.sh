@@ -46,4 +46,4 @@ EOF
 
 chmod +x /Desktop/Chromium.desktop
 chmod +x /Desktop/Mars-Swicth_to_Chinese_input.sh
-exec supervisord -c /app/supervisord.conf
+exec supervisord -c /app/Mars-supervisord.conf
