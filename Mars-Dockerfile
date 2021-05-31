@@ -18,6 +18,7 @@ RUN set -ex; \
         bash \
         net-tools \
         novnc \
+	gdebi \
         
 	socat \
         x11vnc \
@@ -56,7 +57,7 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 RUN sudo -i
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
 RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/a39121ywagujka1/megasync-xUbuntu_18.04_amd64.deb?dl=0
-RUN dpkg -i megasync-xUbuntu_18.04_amd64.deb?dl=0
+RUN sudo gdebi megasync-xUbuntu_18.04_amd64.deb?dl=0
 RUN sudo apt --fix-broken install
 
 RUN sudo add-apt-repository ppa:xubuntu-dev/xfce-4.16
