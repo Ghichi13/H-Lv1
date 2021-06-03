@@ -9,7 +9,7 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
-	
+	gnome \
     python3.6 \
     python3.8 \
     megatools \
@@ -22,7 +22,7 @@ RUN set -ex; \
         bash \
         net-tools \
         novnc \
-	gdebi \
+	apt-utils \
         xz-utils \
 	lintian \
 	socat \
@@ -43,14 +43,7 @@ RUN set -ex; \
         htop \
         gnupg2 \
 	locales \
-	xfonts-intl-chinese \
-	fonts-wqy-microhei \  
-	ibus-pinyin \
-	ibus \
-	ibus-clutter \
-	ibus-gtk \
-	ibus-gtk3 \
-	ibus-qt4 \
+
 	openssh-server \
     && apt-get autoclean \
     && apt-get autoremove \
@@ -62,7 +55,8 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
 RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/a39121ywagujka1/megasync-xUbuntu_18.04_amd64.deb?dl=0
-RUN sudo gdebi megasync-xUbuntu_18.04_amd64.deb?dl=0
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt install --yes /megasync-xUbuntu_18.04_amd64.deb?dl=0
 RUN sudo apt --fix-broken install
 
 # Additional
