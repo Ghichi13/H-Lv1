@@ -12,6 +12,7 @@ RUN set -ex; \
 	xfce4 \
     python3.6 \
     python3.8 \
+    megatools \
         nautilus \
         gedit \
         expect \
@@ -67,8 +68,6 @@ RUN sudo apt --fix-broken install
 # Additional
 
 
-RUN sudo apt-get update
-RUN sudo apt-get install megatools
 
 COPY . /app
 RUN chmod +x /app/conf.d/Mars-websockify.sh
