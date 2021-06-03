@@ -10,7 +10,7 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
 	gnome \
-        code \
+        
         nautilus \
         gedit \
         expect \
