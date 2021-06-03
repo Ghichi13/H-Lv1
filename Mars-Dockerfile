@@ -10,6 +10,8 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
 	xfce4 \
+    python3.6 \
+    python3.8 \
         nautilus \
         gedit \
         expect \
@@ -62,7 +64,16 @@ RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/a39121ywaguj
 RUN sudo gdebi megasync-xUbuntu_18.04_amd64.deb?dl=0
 RUN sudo apt --fix-broken install
 
+# Additional
+RUN sudo apt update
+RUN sudo apt install software-properties-common apt-transport-https wget
+RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+RUN sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+RUN sudo apt update
+RUN sudo apt install code
 
+RUN sudo apt-get update
+RUN sudo apt-get install megatools
 
 COPY . /app
 RUN chmod +x /app/conf.d/Mars-websockify.sh
@@ -87,6 +98,12 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install --yes pulseaudio-utils
 
 # Set up the user
+RUN mount -o remount,rw /
+RUN mount --all
+RUN chown root:root /usr/bin/sudo
+RUN chmod 4755 /usr/bin/sudo
+
+
 RUN export UNAME=$UNAME UID=1000 GID=1000 && \
     mkdir -p "/home/${UNAME}" && \
     echo "${UNAME}:x:${UID}:${GID}:${UNAME} User,,,:/home/${UNAME}:/bin/bash" >> /etc/passwd && \
