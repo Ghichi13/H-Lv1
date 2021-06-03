@@ -10,15 +10,13 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
 	gnome \
-    python3.6 \
-    python3.8 \
-    megatools \
+   
         nautilus \
         gedit \
         expect \
         sudo \
         vim \
-	vlc \
+	
         bash \
         net-tools \
         novnc \
@@ -31,16 +29,16 @@ RUN set -ex; \
         supervisor \
         curl \
         git \
-	pulseaudio \
+	
         wget \
         g++ \
 	unzip \
         ssh \
 	ffmpeg \
 	chromium-browser \
-	firefox \
+	
         terminator \
-        htop \
+     
         gnupg2 \
 	locales \
 
