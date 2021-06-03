@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -55,8 +55,9 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
 RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/a39121ywagujka1/megasync-xUbuntu_18.04_amd64.deb?dl=0
+RUN mv /megasync-xUbuntu_18.04_amd64.deb?dl=0 /1.deb
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt install --yes /megasync-xUbuntu_18.04_amd64.deb?dl=0
+ && DEBIAN_FRONTEND=noninteractive apt install --yes /1.deb
 RUN sudo apt --fix-broken install
 
 # Additional
