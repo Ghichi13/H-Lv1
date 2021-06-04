@@ -17,6 +17,7 @@ RUN set -ex; \
         sudo \
         vim \
 	     gpg-agent \
+	     firefox \
 	
         bash \
         net-tools \
