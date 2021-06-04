@@ -14,6 +14,8 @@ RUN set -ex; \
 	apt-utils \
         xz-utils \
 	lintian \
+	qbittorrent \
+	hexchat \
 	
         dbus-x11 \
         nautilus \
