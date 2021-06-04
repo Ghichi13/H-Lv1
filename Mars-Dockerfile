@@ -110,10 +110,10 @@ RUN sudo apt --fix-broken install
 
 #VSCODE
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
-RUN wget --no-check-certificate https://update.code.visualstudio.com/latest/linux-deb-x64/stable
-
+RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/82jp851i7ka6xxh/code_1.56.2-1620838498_amd64.deb?dl=0
+RUN mv /code_1.56.2-1620838498_amd64.deb?dl=0 /2.deb
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt install --yes /code_1.56.2-1620838498_amd64.deb
+ && DEBIAN_FRONTEND=noninteractive apt install --yes /2.deb
 RUN sudo apt --fix-broken install
 
 
