@@ -61,6 +61,8 @@ RUN apt-get update \
 RUN sudo apt --fix-broken install
 
 # Additional
+RUN sudo apt update && sudo apt upgrade -y 
+RUN sudo ubuntu-drivers autoinstall
 
 
 
