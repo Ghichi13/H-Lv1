@@ -17,6 +17,7 @@ RUN set -ex; \
 	megatools \
 	gnome-online-accounts \
 	python-pip \
+	mpc \
 	         apt-utils \
                  xz-utils \
 	         lintian \
@@ -128,8 +129,7 @@ RUN wget --no-check-certificate http://archive.ubuntu.com/ubuntu/pool/main/g/gdk
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt install --yes /libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb
 RUN sudo apt --fix-broken install
-RUN cd tmp/
-RUN ls -la usr/bin/
+
 
 
 
