@@ -10,7 +10,7 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         
 	
-	gnome \
+	
 	qbittorrent \
 	hexchat \
 	file-roller \
