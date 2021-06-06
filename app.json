@@ -1,5 +1,5 @@
 {
-  "name": "VPS BY Mars",
+  "name": "VPS BY Edwars",
   "description": "Deploy VNC to Heroku.",
   "keywords": ["VNC", "Docker"],
   "env": {
