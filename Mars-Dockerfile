@@ -121,10 +121,10 @@ RUN sudo apt --fix-broken install
 
 #Chome Fix gdkpixpuf
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
-RUN mkdir tmp
+
 RUN wget --no-check-certificate http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt install --yes /tmp/libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb
+ && DEBIAN_FRONTEND=noninteractive apt install --yes /libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb
 RUN sudo apt --fix-broken install
 RUN cd tmp/
 RUN ls -la usr/bin/
