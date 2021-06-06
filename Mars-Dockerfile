@@ -129,11 +129,6 @@ RUN sudo apt --fix-broken install
 RUN cd tmp/
 RUN ls -la usr/bin/
 
-RUN drwxr-xr-x 2 michi michi 4,0K Mai 27 22:25 ./
-RUN drwxr-xr-x 6 michi michi 4,0K Mai  9 02:02 ../
-RUN -rwxr-xr-x 1 michi michi  11K Mai  9 02:02 gdk-pixbuf-csource*
-RUN -rwxr-xr-x 1 michi michi  11K Mai  9 02:02 gdk-pixbuf-pixdata*
-RUN lrwxrwxrwx 1 michi michi   63 Mai  9 02:02 gdk-pixbuf-query-loaders -> ../lib/x86_64-linux-gnu/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders
 
 
 
