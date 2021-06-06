@@ -25,11 +25,11 @@ RUN set -ex; \
 	
         dbus-x11 \
         nautilus \
-        
+        gedit \
         expect \
         sudo \
-        
-	
+        vim \
+	vlc \
         bash \
         net-tools \
         novnc \
@@ -40,23 +40,29 @@ RUN set -ex; \
         supervisor \
         curl \
         git \
-	
+	pulseaudio \
         wget \
         g++ \
-	unrar \
+	unzip \
         ssh \
 	ffmpeg \
 	chromium-browser \
 	firefox \
         terminator \
-        
+        htop \
         gnupg2 \
 	locales \
-	
-	  
-	
-
+	xfonts-intl-chinese \
+	fonts-wqy-microhei \  
+	ibus-pinyin \
+	ibus \
+	ibus-clutter \
+	ibus-gtk \
+	ibus-gtk3 \
+	ibus-qt4 \
 	openssh-server \
+
+
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
