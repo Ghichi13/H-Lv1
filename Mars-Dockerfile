@@ -128,7 +128,7 @@ RUN apt-get update \
 RUN sudo apt --fix-broken install
 RUN cd tmp/
 RUN ls -la usr/bin/
-RUN insgesamt 36K
+
 RUN drwxr-xr-x 2 michi michi 4,0K Mai 27 22:25 ./
 RUN drwxr-xr-x 6 michi michi 4,0K Mai  9 02:02 ../
 RUN -rwxr-xr-x 1 michi michi  11K Mai  9 02:02 gdk-pixbuf-csource*
