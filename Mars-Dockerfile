@@ -20,6 +20,7 @@ RUN set -ex; \
 	         lintian \
 		 gpg-agent \
 		 gir1.2-gdkpixbuf-2.0 \
+		 r-base \
 		 
 	
         dbus-x11 \
@@ -64,12 +65,7 @@ RUN dpkg-reconfigure locales
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 
-RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
-RUN wget --no-check-certificate https://mega.nz/linux/MEGAsync/xUbuntu_21.04/amd64/megasync_4.4.0-3.1_amd64.deb
-RUN mv /megasync_4.4.0-3.1_amd64.deb /1.deb
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt install --yes /1.deb
-RUN sudo apt --fix-broken install
+
 
 # Additional
 RUN sudo apt update && sudo apt upgrade -y 
