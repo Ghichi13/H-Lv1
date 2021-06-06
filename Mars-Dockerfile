@@ -74,7 +74,7 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 
 # Additional
-RUN sudo apt update && sudo apt upgrade -y 
+RUN sudo apt-get update && sudo apt upgrade -y 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install --yes ubuntu-drivers-common
 
@@ -86,6 +86,7 @@ RUN chmod +x /app/conf.d/Mars-websockify.sh
 RUN chmod +x /app/Mars-run.sh
 RUN chmod +x /app/Mars-expect_vnc.sh
 
+RUN sudo apt-get --allow-releaseinfo-change update
 
 # MEGA-SYNC
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
