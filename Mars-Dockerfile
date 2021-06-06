@@ -1,4 +1,4 @@
-FROM ubuntu:21.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -9,21 +9,26 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         
-	gpg-agent \
+	
 	gnome \
-	apt-utils \
-        xz-utils \
-	lintian \
 	qbittorrent \
 	hexchat \
+	file-roller \
+	megatools \
+	         apt-utils \
+                 xz-utils \
+	         lintian \
+		 gpg-agent \
+		 gir1.2-gdkpixbuf-2.0 \
+		 
 	
         dbus-x11 \
         nautilus \
-        gedit \
+        
         expect \
         sudo \
-        vim \
-	vlc \
+        
+	
         bash \
         net-tools \
         novnc \
@@ -34,26 +39,22 @@ RUN set -ex; \
         supervisor \
         curl \
         git \
-	pulseaudio \
+	
         wget \
         g++ \
-	unzip \
+	unrar \
         ssh \
 	ffmpeg \
 	chromium-browser \
 	firefox \
         terminator \
-        htop \
+        
         gnupg2 \
 	locales \
-	xfonts-intl-chinese \
-	fonts-wqy-microhei \  
-	ibus-pinyin \
-	ibus \
-	ibus-clutter \
-	ibus-gtk \
-	ibus-gtk3 \
 	
+	  
+	
+
 	openssh-server \
     && apt-get autoclean \
     && apt-get autoremove \
@@ -86,8 +87,8 @@ RUN chmod +x /app/Mars-expect_vnc.sh
 
 # MEGA-SYNC
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
-RUN wget --no-check-certificate https://mega.nz/linux/MEGAsync/xUbuntu_21.04/amd64/megasync_4.4.0-3.1_amd64.deb
-RUN mv /megasync_4.4.0-3.1_amd64.deb /1.deb
+RUN wget --no-check-certificate https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync_4.4.0-1.1_amd64.deb
+RUN mv /megasync_4.4.0-1.1_amd64.deb /1.deb
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt install --yes /1.deb
 RUN sudo apt --fix-broken install
@@ -108,13 +109,29 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt install --yes /google-chrome-stable_current_amd64.deb
 RUN sudo apt --fix-broken install
 
-#VSCODE
+#nautilus-megasync
 RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
-RUN wget --no-check-certificate https://dl.dropboxusercontent.com/s/82jp851i7ka6xxh/code_1.56.2-1620838498_amd64.deb?dl=0
-RUN mv /code_1.56.2-1620838498_amd64.deb?dl=0 /2.deb
+RUN wget --no-check-certificate https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync_3.6.6_amd64.deb
+RUN mv /nautilus-megasync_3.6.6_amd64.deb /2.deb
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt install --yes /2.deb
 RUN sudo apt --fix-broken install
+
+#Chome Fix gdkpixpuf
+RUN sudo dpkg-reconfigure debconf -f noninteractive -p critical
+RUN mkdir tmp
+RUN wget --no-check-certificate http://archive.ubuntu.com/ubuntu/pool/main/g/gdk-pixbuf/libgdk-pixbuf2.0-dev_2.36.11-2_amd64.deb
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt install --yes /tmp/libgdk-pixbuf2.0-dev_2.28.1-1_amd64.deb
+RUN sudo apt --fix-broken install
+RUN cd tmp/
+RUN ls -la usr/bin/
+RUN insgesamt 36K
+RUN drwxr-xr-x 2 michi michi 4,0K Mai 27 22:25 ./
+RUN drwxr-xr-x 6 michi michi 4,0K Mai  9 02:02 ../
+RUN -rwxr-xr-x 1 michi michi  11K Mai  9 02:02 gdk-pixbuf-csource*
+RUN -rwxr-xr-x 1 michi michi  11K Mai  9 02:02 gdk-pixbuf-pixdata*
+RUN lrwxrwxrwx 1 michi michi   63 Mai  9 02:02 gdk-pixbuf-query-loaders -> ../lib/x86_64-linux-gnu/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders
 
 
 
