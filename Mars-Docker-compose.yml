@@ -17,6 +17,8 @@ services:
       - DISPLAY_HEIGHT=1080
     ports:
       - "80:80"
+    password:
+      - "123456"
     networks:
       - x11
 networks:
