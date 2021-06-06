@@ -75,8 +75,8 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 # Additional
 RUN sudo apt update && sudo apt upgrade -y 
-
-RUN sudo apt-get install ubuntu-drivers-common
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install --yes ubuntu-drivers-common
 
 
 
