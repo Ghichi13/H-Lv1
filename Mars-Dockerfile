@@ -16,7 +16,7 @@ RUN set -ex; \
 	file-roller \
 	megatools \
 	gnome-online-accounts \
-	insync \
+	python-pip \
 	         apt-utils \
                  xz-utils \
 	         lintian \
