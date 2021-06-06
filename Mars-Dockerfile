@@ -75,7 +75,7 @@ RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 # Additional
 RUN sudo apt update && sudo apt upgrade -y 
-RUN sudo ubuntu-drivers autoinstall
+
 RUN sudo apt-get install ubuntu-drivers-common
 
 
