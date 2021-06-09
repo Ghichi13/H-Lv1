@@ -55,14 +55,9 @@ RUN set -ex; \
         htop \
         gnupg2 \
 	locales \
-	xfonts-intl-chinese \
+	
 	fonts-wqy-microhei \  
-	ibus-pinyin \
-	ibus \
-	ibus-clutter \
-	ibus-gtk \
-	ibus-gtk3 \
-	ibus-qt4 \
+	
 	openssh-server \
 
 
